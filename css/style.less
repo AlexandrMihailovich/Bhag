@@ -42,7 +42,7 @@ section {
   }
   .marginCanter;
 }
-article {
+article, .article {
   flex: 1;
 }
 .lineTitle {
@@ -213,7 +213,7 @@ body>header {
 .headerBanner {
   section {
     display: block;
-    article {
+    article, .article {
       padding: 3em;
       color: @colorWhite;
       font-weight: 500;
@@ -300,7 +300,7 @@ body>header {
 /*******************************/
 .feature {
   background-color: @colorGrayBG;
-  article {
+  article, .article {
     padding: 1em;
     color: @colorGrayText;
     @media (max-width: @width1) {
@@ -319,7 +319,7 @@ body>header {
 }
 /*********************************/
 .about {
-  article {
+  article, .article {
     display: flex;
     flex-flow: row wrap;
     color: @colorGrayText;
@@ -367,7 +367,7 @@ body>header {
 /********************************/
 .team {
   padding-bottom: 0;
-  article {
+  article, .article {
     @media (max-width: @width2) {
       flex: 1 1 100%;
       margin-bottom: 2em;
@@ -419,7 +419,7 @@ body>header {
       padding: 0;
     }
   }
-  article {
+  article, .article {
     flex: 1 1 40%;
     @media (max-width: @width2) {
       flex: 1 1 100%;
@@ -464,7 +464,7 @@ body>header {
 .statistics {
   background-color: @colorGrayBG;
   padding-bottom: 0;
-  article {
+  article, .article {
     @media (max-width: @width1) {
       flex: 1 1 50%;
       margin-bottom: 2em;
@@ -528,7 +528,7 @@ body>header {
     .marginCanter;
     width: 90%;
     margin-top: -3em;
-    article {
+    article, .article {
       flex: 1 1 27%;
       @media (max-width: @width1) {
         flex: 1 1 45%;
