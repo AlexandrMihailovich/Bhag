@@ -407,8 +407,8 @@ body > header {
 .feature .article header {
   padding: 1em 0 0 0;
 }
-.feature article header h1,
-.feature .article header h1 {
+.feature article header h2,
+.feature .article header h2 {
   font-size: 1.2em;
 }
 /*********************************/
