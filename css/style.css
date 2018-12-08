@@ -36,7 +36,8 @@ section {
     width: 95%;
   }
 }
-article {
+article,
+.article {
   flex: 1;
 }
 .lineTitle {
@@ -284,7 +285,8 @@ body > header {
 .headerBanner section {
   display: block;
 }
-.headerBanner section article {
+.headerBanner section article,
+.headerBanner section .article {
   padding: 3em;
   color: #ffffff;
   font-weight: 500;
@@ -369,28 +371,34 @@ body > header {
 .feature {
   background-color: #ececec;
 }
-.feature article {
+.feature article,
+.feature .article {
   padding: 1em;
   color: #9Ca0a2;
 }
 @media (max-width: 800px) {
-  .feature article {
+  .feature article,
+  .feature .article {
     flex: 1 1 50%;
   }
 }
 @media (max-width: 450px) {
-  .feature article {
+  .feature article,
+  .feature .article {
     flex: 1 1 100%;
   }
 }
-.feature article header {
+.feature article header,
+.feature .article header {
   padding: 1em 0 0 0;
 }
-.feature article header h1 {
+.feature article header h1,
+.feature .article header h1 {
   font-size: 1.2em;
 }
 /*********************************/
-.about article {
+.about article,
+.about .article {
   display: flex;
   flex-flow: row wrap;
   color: #9Ca0a2;
@@ -445,7 +453,8 @@ body > header {
   padding-bottom: 0;
 }
 @media (max-width: 450px) {
-  .team article {
+  .team article,
+  .team .article {
     flex: 1 1 100%;
     margin-bottom: 2em;
   }
@@ -501,12 +510,14 @@ body > header {
     padding: 0;
   }
 }
-.exp article {
+.exp article,
+.exp .article {
   flex: 1 1 40%;
   padding: 2em;
 }
 @media (max-width: 450px) {
-  .exp article {
+  .exp article,
+  .exp .article {
     flex: 1 1 100%;
   }
 }
@@ -549,13 +560,15 @@ body > header {
   padding-bottom: 0;
 }
 @media (max-width: 800px) {
-  .statistics article {
+  .statistics article,
+  .statistics .article {
     flex: 1 1 50%;
     margin-bottom: 2em;
   }
 }
 @media (max-width: 450px) {
-  .statistics article {
+  .statistics article,
+  .statistics .article {
     flex: 1 1 100%;
     margin-bottom: 2em;
   }
@@ -614,18 +627,21 @@ body > header {
   width: 90%;
   margin-top: -3em;
 }
-.portfolio .box article {
+.portfolio .box article,
+.portfolio .box .article {
   flex: 1 1 27%;
   margin: 1em 1% 1em 1%;
   color: #9Ca0a2;
 }
 @media (max-width: 800px) {
-  .portfolio .box article {
+  .portfolio .box article,
+  .portfolio .box .article {
     flex: 1 1 45%;
   }
 }
 @media (max-width: 450px) {
-  .portfolio .box article {
+  .portfolio .box article,
+  .portfolio .box .article {
     flex: 1 1 100%;
   }
 }
