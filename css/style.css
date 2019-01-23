@@ -24,8 +24,7 @@ img {
 body {
   font-size: 16px;
 }
-section,
-.section {
+section {
   display: flex;
   flex-flow: row wrap;
   width: 80%;
@@ -33,13 +32,11 @@ section,
   margin-right: auto;
 }
 @media (max-width: 800px) {
-  section,
-  .section {
+  section {
     width: 95%;
   }
 }
-article,
-.article {
+article {
   flex: 1;
 }
 .lineTitle {
@@ -280,70 +277,58 @@ article,
 /******************************/
 body > header {
   background-image: url("img/Layer-2.png");
+  min-height: 100vh;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.headerBanner section,
-.headerBanner .section {
+.headerBanner section {
   display: block;
 }
-.headerBanner section article,
-.headerBanner .section article,
-.headerBanner section .article,
-.headerBanner .section .article {
+.headerBanner section article {
   padding: 3em;
   color: #ffffff;
   font-weight: 500;
 }
-.headerBanner section .content,
-.headerBanner .section .content {
+.headerBanner section .content {
   margin-left: auto;
   margin-right: auto;
   width: 60%;
 }
-.headerBanner section .bannerNav .iconTextBd,
-.headerBanner .section .bannerNav .iconTextBd {
+.headerBanner section .bannerNav .iconTextBd {
   margin-top: 8em;
   vertical-align: top;
 }
-.headerBanner section .bannerNav .iconTextBd:nth-child(3),
-.headerBanner .section .bannerNav .iconTextBd:nth-child(3) {
+.headerBanner section .bannerNav .iconTextBd:nth-child(3) {
   margin-top: 0;
 }
-.headerBanner section .bannerNav .iconTextBd:nth-child(4),
-.headerBanner .section .bannerNav .iconTextBd:nth-child(4) {
+.headerBanner section .bannerNav .iconTextBd:nth-child(4) {
   margin-top: 0;
 }
 @media (max-width: 800px) {
-  .headerBanner section .bannerNav .iconTextBd,
-  .headerBanner .section .bannerNav .iconTextBd {
+  .headerBanner section .bannerNav .iconTextBd {
     margin: 1em;
   }
-  .headerBanner section .bannerNav .iconTextBd:nth-child(3),
-  .headerBanner .section .bannerNav .iconTextBd:nth-child(3) {
+  .headerBanner section .bannerNav .iconTextBd:nth-child(3) {
     margin: 1em;
   }
-  .headerBanner section .bannerNav .iconTextBd:nth-child(4),
-  .headerBanner .section .bannerNav .iconTextBd:nth-child(4) {
+  .headerBanner section .bannerNav .iconTextBd:nth-child(4) {
     margin: 1em;
   }
 }
-.headerBanner section .scrollerBox .icoBg-w,
-.headerBanner .section .scrollerBox .icoBg-w {
+.headerBanner section .scrollerBox .icoBg-w {
   padding: 1em;
 }
-.headerBanner section .scrollerBox .icoBg-w .articleIco,
-.headerBanner .section .scrollerBox .icoBg-w .articleIco {
+.headerBanner section .scrollerBox .icoBg-w .articleIco {
   width: 1.01em;
   height: 1.081395348837209em;
 }
 /*******************************/
 .navigation {
   padding: 2.5em;
+  background: #fff;
 }
-.navigation section,
-.navigation .section {
+.navigation section {
   align-items: center;
 }
 .navigation .siteTitle {
@@ -359,6 +344,9 @@ body > header {
 .navigation nav ul li {
   display: inline-block;
   list-style: none;
+}
+.navigation nav ul li .link__active {
+  color: #9A3A98;
 }
 .navigation nav ul li a {
   font-size: 0.8em;
@@ -382,38 +370,39 @@ body > header {
     text-align: center;
   }
 }
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 0.5em;
+}
 /*******************************/
 .feature {
   background-color: #ececec;
 }
-.feature article,
-.feature .article {
+.feature article {
   padding: 1em;
   color: #9Ca0a2;
 }
 @media (max-width: 800px) {
-  .feature article,
-  .feature .article {
+  .feature article {
     flex: 1 1 50%;
   }
 }
 @media (max-width: 450px) {
-  .feature article,
-  .feature .article {
+  .feature article {
     flex: 1 1 100%;
   }
 }
-.feature article header,
-.feature .article header {
+.feature article header {
   padding: 1em 0 0 0;
 }
-.feature article header h2,
-.feature .article header h2 {
+.feature article header h1 {
   font-size: 1.2em;
 }
 /*********************************/
-.about article,
-.about .article {
+.about article {
   display: flex;
   flex-flow: row wrap;
   color: #9Ca0a2;
@@ -468,8 +457,7 @@ body > header {
   padding-bottom: 0;
 }
 @media (max-width: 450px) {
-  .team article,
-  .team .article {
+  .team article {
     flex: 1 1 100%;
     margin-bottom: 2em;
   }
@@ -512,30 +500,25 @@ body > header {
   flex-flow: row wrap;
 }
 /*********************************/
-.exp section,
-.exp .section {
+.exp section {
   padding: 0 6em 0 6em;
 }
 @media (max-width: 450px) {
-  .exp section,
-  .exp .section {
+  .exp section {
     padding: 0;
   }
 }
 @media (max-width: 800px) {
-  .exp section,
-  .exp .section {
+  .exp section {
     padding: 0;
   }
 }
-.exp article,
-.exp .article {
+.exp article {
   flex: 1 1 40%;
   padding: 2em;
 }
 @media (max-width: 450px) {
-  .exp article,
-  .exp .article {
+  .exp article {
     flex: 1 1 100%;
   }
 }
@@ -578,15 +561,13 @@ body > header {
   padding-bottom: 0;
 }
 @media (max-width: 800px) {
-  .statistics article,
-  .statistics .article {
+  .statistics article {
     flex: 1 1 50%;
     margin-bottom: 2em;
   }
 }
 @media (max-width: 450px) {
-  .statistics article,
-  .statistics .article {
+  .statistics article {
     flex: 1 1 100%;
     margin-bottom: 2em;
   }
@@ -645,21 +626,18 @@ body > header {
   width: 90%;
   margin-top: -3em;
 }
-.portfolio .box article,
-.portfolio .box .article {
+.portfolio .box article {
   flex: 1 1 27%;
   margin: 1em 1% 1em 1%;
   color: #9Ca0a2;
 }
 @media (max-width: 800px) {
-  .portfolio .box article,
-  .portfolio .box .article {
+  .portfolio .box article {
     flex: 1 1 45%;
   }
 }
 @media (max-width: 450px) {
-  .portfolio .box article,
-  .portfolio .box .article {
+  .portfolio .box article {
     flex: 1 1 100%;
   }
 }

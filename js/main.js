@@ -233,22 +233,126 @@ $(document).ready(function () {
     });
 
 
-    function  paralaxBackground(selector, speed) {
-        var element = $(selector);
+
+    function paralax(target, speed) {
+        var element = $(target);
         var elementYPosition = element.position().top;
         element.css('background-position', 'center 0px');
+        target = document.querySelector(target);
+        window.addEventListener('scroll', function() {
+            worker (target);
+        });
+        worker(target);
 
-        addEventListener('scroll', function () {
-            //var max = document.body.scrollHeight - innerHeight;
-            if(pageYOffset > (elementYPosition + element.height())) {
-                return false;
+        function worker(target) {
+            var targetPosition = {
+                    top: window.pageYOffset + target.getBoundingClientRect().top,
+                    left: window.pageXOffset + target.getBoundingClientRect().left,
+                    right: window.pageXOffset + target.getBoundingClientRect().right,
+                    bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+                },
+                windowPosition = {
+                    top: window.pageYOffset,
+                    left: window.pageXOffset,
+                    right: window.pageXOffset + document.documentElement.clientWidth,
+                    bottom: window.pageYOffset + document.documentElement.clientHeight
+                };
+
+            if (targetPosition.bottom > windowPosition.top &&
+                targetPosition.top < windowPosition.bottom &&
+                targetPosition.right > windowPosition.left &&
+                targetPosition.left < windowPosition.right) {
+
+                element.css('background-position', 'center 0px');
+
+                var pos = Math.floor((window.pageYOffset - elementYPosition) / speed);
+                element.css('background-position', 'center ' + pos + 'px');
             }
-            if((pageYOffset + innerHeight) < elementYPosition) {
-                return false;
+        }
+    };
+    paralax('body>header', 2.8);
+
+
+
+
+    // Fixed header
+    //-----------------------------------------------
+    function fixedHeader(selector, fixedClass) {
+        var $navMenu = $(selector);
+        var initPosition = $navMenu.position().top;
+        var balast = $('<div id="balast">').css({
+            'position': 'relative',
+            'height': $navMenu.outerHeight()
+        });
+
+        $navMenu.css({
+            'transition': 'all ease-in-out 0.3s'
+        })
+
+        $navMenu.wrap(balast);
+
+        function worker() {
+            if (($navMenu.length > 0)) {
+                if(($(this).scrollTop() > initPosition) && (!$navMenu.hasClass(fixedClass))) {
+                    $navMenu.addClass(fixedClass);
+                } else if(($(this).scrollTop() < initPosition) && $navMenu.hasClass(fixedClass)) {
+                    $navMenu.removeClass(fixedClass);
+                }
+            };
+        }
+        $(window).scroll(worker);
+    }
+    fixedHeader(".navigation",'navbar-fixed');
+
+
+    // Anchor Scroller
+    function anchorScroller(anchor) {
+        var link = $('a[href="#' + anchor + '"]');
+        var target = $('#' + anchor + '');
+        link.click(function (e) {
+            e.preventDefault();
+            var body = $("html, body");
+            body.stop().animate({scrollTop:target.offset().top},
+                500, 'swing', function(){});
+        });
+        $(window).scroll(function() {
+            var targetPosition = {
+                    top: window.pageYOffset + target[0].getBoundingClientRect().top,
+                    left: window.pageXOffset + target[0].getBoundingClientRect().left,
+                    right: window.pageXOffset + target[0].getBoundingClientRect().right,
+                    bottom: window.pageYOffset + target[0].getBoundingClientRect().bottom
+                },
+                windowPosition = {
+                    top: window.pageYOffset,
+                    left: window.pageXOffset,
+                    right: window.pageXOffset + document.documentElement.clientWidth,
+                    bottom: window.pageYOffset + document.documentElement.clientHeight
+                };
+            var viewportCenter = windowPosition.top + ((windowPosition.bottom - windowPosition.top) / 2);
+
+            //if (targetPosition.bottom > windowPosition.top &&
+            //    targetPosition.top < windowPosition.bottom &&
+            //    targetPosition.right > windowPosition.left &&
+            //    targetPosition.left < windowPosition.right) {
+            if((targetPosition.bottom > viewportCenter || targetPosition.top > (windowPosition.top-10) ) &&
+                targetPosition.top < viewportCenter) {
+                /*console.log({
+                    item : {tb : targetPosition.bottom, tt : targetPosition.top},
+                    itemHeight : {h : targetPosition.bottom - targetPosition.top},
+                    viewport: {wb : windowPosition.bottom, wt : windowPosition.top},
+                    viewportHeight: {h : windowPosition.bottom - windowPosition.top},
+                    viewportCenter: windowPosition.top + (windowPosition.bottom - windowPosition.top),
+                });*/
+                link.addClass('link__active');
+            } else {
+                link.removeClass('link__active');
             }
-            var pos = Math.floor(pageYOffset - elementYPosition) / speed;
-            element.css('background-position', 'center ' + pos + 'px');
         });
     }
-    paralaxBackground('body>header', 3);
+    anchorScroller('feature');
+    anchorScroller('about');
+    anchorScroller('team');
+    anchorScroller('service');
+    anchorScroller('portfolio');
+    anchorScroller('contact');
 });
